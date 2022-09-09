@@ -10,7 +10,7 @@ function WeatherWidget({ city, code }) {
     const [icon, setIcon] = useState(null);
 
     useEffect(() => {
-        const API_KEY = 'c21a75b667d6f7abb81f118dcf8d4611';
+        const API_KEY = process.env.REACT_APP_API_KEY;
         axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${code},fr&appid=${API_KEY}&units=metric`)
           .then((response) => {
             setTemperature(Math.round(response.data.main.temp));
